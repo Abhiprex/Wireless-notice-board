@@ -1,25 +1,16 @@
+cat << 'EOF' > README.md
 # Bluetooth-Controlled Wireless LED Notice Board 📢
 
 An embedded hardware project designed to display wireless text notices on a P10 LED matrix display sent from an Android smartphone via Bluetooth.
 
 ---
 
-## 📸 Overview & Demo
-
-The system receives raw text strings sent over a Bluetooth terminal or dedicated Android application, parses the incoming serial buffer, and smoothly scrolls the notice across a P10 single-color LED matrix panel in real time.
-
-| Hardware Setup | Demonstration Video |
-| :---: | :---: |
-| ![Hardware Setup](IMG-20230417-WA0023.jpeg) | `VID_20230418_103258.mp4` |
-
----
-
 ## ⚙️ How It Works
 
-1. **Wireless Reception:** An **HC-05 Bluetooth module** receives text data wirelessly from a paired Android app and streams it to the microcontroller via UART (`Rx`/`Tx`).
+1. **Wireless Reception:** An **HC-05 Bluetooth module** receives text data wirelessly from a paired Android app and streams it directly to the Arduino UNO via serial UART pins (`Rx`/`Tx`).
 2. **Buffer Parsing:** The control firmware checks the incoming serial buffer, extracts the message string, and manages scrolling speed/display logic.
-3. **Display Driving:** The parsed message is rendered into pixel configurations and scrolled continuously across the **P10 LED matrix panel**.
-4. **Power Management:** Powered via a dedicated **5V 3A SMPS** power supply to safely handle the high current demands of the LED matrix.
+3. **Display Driving:** The parsed text is converted into pixel configurations and scrolled smoothly across a **P10 LED matrix display panel**.
+4. **Power Management:** Powered via a dedicated **5V 3A SMPS** power supply because the LED matrix draws too much current to run off the Arduino development board safely.
 
 ---
 
@@ -39,8 +30,8 @@ Wireless-notice-board/
 │
 ├── notice-board.c           # Main firmware code handling UART and display logic
 ├── README.md                # Project documentation
-├── IMG-20230417-WA0023.jpeg # Hardware wiring and assembly image
-└── VID_20230418_103258.mp4  # Video demonstration of the working notice board
+├── Hardware-picture.jpeg    # Hardware wiring and assembly image
+└── Hardware-working.mp4     # Video demonstration of the working notice board
 
 ---
 
@@ -54,3 +45,4 @@ Wireless-notice-board/
 | `GND` | `GND` |
 
 > **Note:** Disconnect the `RX`/`TX` pins of the HC-05 module while uploading code to the Arduino via USB to prevent UART flashing conflicts.
+EOF
