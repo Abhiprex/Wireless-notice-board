@@ -1,4 +1,3 @@
-cat << 'EOF' > README.md
 # Bluetooth-Controlled Wireless LED Notice Board 📢
 
 An embedded hardware project designed to display wireless text notices on a P10 LED matrix display sent from an Android smartphone via Bluetooth.
@@ -7,7 +6,7 @@ An embedded hardware project designed to display wireless text notices on a P10 
 
 ## ⚙️ How It Works
 
-1. **Wireless Reception:** An **HC-05 Bluetooth module** receives text data wirelessly from a paired Android app and streams it directly to the Arduino UNO via serial UART pins (`Rx`/`Tx`).
+1. **Wireless Reception:** An **HC-05 Bluetooth module** receives text data wirelessly from a paired Android app and streams it directly to the Arduino UNO via serial UART pins (`Rx` / `Tx`).
 2. **Buffer Parsing:** The control firmware checks the incoming serial buffer, extracts the message string, and manages scrolling speed/display logic.
 3. **Display Driving:** The parsed text is converted into pixel configurations and scrolled smoothly across a **P10 LED matrix display panel**.
 4. **Power Management:** Powered via a dedicated **5V 3A SMPS** power supply because the LED matrix draws too much current to run off the Arduino development board safely.
@@ -44,5 +43,4 @@ Wireless-notice-board/
 | `VCC` | `5V` |
 | `GND` | `GND` |
 
-> **Note:** Disconnect the `RX`/`TX` pins of the HC-05 module while uploading code to the Arduino via USB to prevent UART flashing conflicts.
-EOF
+> **Note:** Disconnect the `RX` / `TX` pins of the HC-05 module while uploading code to the Arduino via USB to prevent UART flashing conflicts.
